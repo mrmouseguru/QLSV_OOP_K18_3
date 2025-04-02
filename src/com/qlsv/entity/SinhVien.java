@@ -4,10 +4,24 @@ import java.util.Date;
 
 public class SinhVien {
 	
-	private int maSV;
+	private int maSV;//=> public : SAI
 	private String hoTen;
 	private String nganh;
 	private Date ngaySinh;
+	
+	public int getMaSV() {
+		return this.maSV;
+	}
+	
+	public String getHoTen() {
+		return this.hoTen;
+	}
+	
+	public String getNganh() {
+		return this.nganh;
+	}
+	
+	
 	
 	protected SinhVien() {}
 	
@@ -18,11 +32,11 @@ public class SinhVien {
 		this.ngaySinh = ngaySinh;
 	}
 	
-	protected double tinhDiem() {
+	public double tinhDiem() {
 		return 0;
 	}
 	
-	protected String tinhHocLuc() {
+	public String tinhHocLuc() {
 		
 		double diemTB = tinhDiem();
 		if (diemTB < 5) {
