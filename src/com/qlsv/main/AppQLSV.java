@@ -5,10 +5,13 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 import com.qlsv.control.SVControlAdd;
+import com.qlsv.control.SVControlPrint;
 import com.qlsv.database.SVAddDAO;
+import com.qlsv.database.SVPrintDAO;
 import com.qlsv.ui.SVInAdd;
 import com.qlsv.ui.SVMenu;
 import com.qlsv.ui.SVOutAdd;
+import com.qlsv.ui.SVOutPrint;
 
 public class AppQLSV {
 
@@ -22,6 +25,9 @@ public class AppQLSV {
 		SVInAdd svInAdd;
 		SVAddDAO svAddDAO;
 		SVOutAdd svOutAdd;
+		SVControlPrint svControlPrint;
+		SVPrintDAO svPrintDAO;
+		SVOutPrint svOutPrint;
 		
 	   //Bước 3     //Bước 2
 		out =       new PrintWriter(System.out);
@@ -32,9 +38,15 @@ public class AppQLSV {
 		//đối tượng thông qua constructor
 		svInAdd = new SVInAdd(out, in);
 		svAddDAO = new SVAddDAO();
+		svPrintDAO =  new SVPrintDAO();
 		svOutAdd = new SVOutAdd(out);
+		svOutPrint = new SVOutPrint(out);
+		svControlPrint = new SVControlPrint(svPrintDAO, svOutPrint);
 		svControlAdd = new SVControlAdd(svAddDAO, svOutAdd, svInAdd);
 		menu = new SVMenu(out, in, "->", svControlAdd);
+		//svControlPrint = null
+		menu.setSVControlPrint(svControlPrint);
+		//svControlPrint = 010001010101110
 		
 		//gửi thông điệp
 		out.println("~~~~ Chương trình QLSV ~~~~");
