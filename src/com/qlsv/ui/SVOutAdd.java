@@ -25,18 +25,19 @@ public class SVOutAdd {
 		
 		//kiểm tra, 2 cách
 		//ngành
-		if("PM".equalsIgnoreCase(sv.getNganh())) {
+		//if("PM".equalsIgnoreCase(sv.getNganh())) {
 			//điểm java, css, html
-			SinhVienPM sinhVienPM;
-			//ép kiểu
-			sinhVienPM = (SinhVienPM)sv;
-			out.println("ĐIỂM JAVA: " + sinhVienPM.getDiemJava());
-		}
+			
+		//}
 		
 		//instance of
 		if(sv instanceof SinhVienPM) {
 			//phần mềm
 			//điểm java, css, html
+			SinhVienPM sinhVienPM;
+			//ép kiểu
+			sinhVienPM = (SinhVienPM)sv;
+			out.println("ĐIỂM JAVA: " + sinhVienPM.getDiemJava());
 		}
 		
 		if(sv instanceof SinhVienKT) {
